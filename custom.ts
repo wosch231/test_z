@@ -8,7 +8,7 @@
  * Custom blocks color=#0fbc11
  */
 
-//% weight=50 color=#0fbc00 icon="\uf14b"
+//% weight=50 color=#8470FF icon="\uf14b"
 namespace test_z {
     /**
      * Zeichnet eine Linie von
