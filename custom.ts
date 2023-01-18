@@ -10,6 +10,43 @@
 
 //% weight=50 color=#8470FF icon="\uf14b"
 namespace test_z {
+    //% blockId=Kreis
+    //% block="Zeichne Kreis mit (xm,ym)%xm%ym und Radius%R"
+    export function Kreis(xm:number,ym:number, r:number)
+    {
+        let f = 1 - r;
+        let ddF_x = 0;
+        let ddF_y = -2 * r;
+        let x = 0;
+        let y = r;
+
+        led.plot(xm, ym + r);
+        led.plot(xm, ym - r);
+        led.plot(xm + r, ym);
+        led.plot(xm - r, ym);
+
+        while (x < y) {
+            if (f >= 0) {
+                y -= 1;
+                ddF_y += 2;
+                f += ddF_y;
+            }
+            x += 1;
+            ddF_x += 2;
+            f += ddF_x + 1;
+
+            led.plot(xm + x, ym + y);
+            led.plot(xm - x, ym + y);
+            led.plot(xm + x, ym - y);
+            led.plot(xm - x, ym - y);
+            led.plot(xm + y, ym + x);
+            led.plot(xm - y, ym + x);
+            led.plot(xm + y, ym - x);
+            led.plot(xm - y, ym - x);
+        }
+    }
+
+
     /**
      * Zeichnet eine Linie von
      * @param (x0,y0) nach (x1,y1)
